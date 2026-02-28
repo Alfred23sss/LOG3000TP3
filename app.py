@@ -46,7 +46,6 @@ def calculate(expr: str):
             op_char = ch
 
     if op_pos <= 0 or op_pos >= len(s) - 1:
-        # operator at start/end or not found
         raise ValueError("invalid expression format")
 
     left = s[:op_pos]
