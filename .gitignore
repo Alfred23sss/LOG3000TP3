@@ -14,6 +14,8 @@ __pycache__/
 
 # Pytest
 .pytest_cache/
+pytest_out.txt
+pytest_ui_out.txt
 
 # VS Code / IDEs
 .vscode/

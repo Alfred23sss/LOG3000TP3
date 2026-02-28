@@ -1,14 +1,29 @@
 # Module Tests
 
 ## Raison d'être du module
-Ce répertoire centralise l'ensemble de la suite de tests automatisés du projet. Ces tests servent à vérifier à travers un environnement isolé que la logique métier (opérations mathématiques) et les routes de l'API web (Flask) se comportent selon les attentes. Ils garantissent la stabilité du code et permettent d'empêcher les éventuelles régressions (bris de code par inadvertance suite à de nouvelles fonctionnalités).
+Ce répertoire contient l'ensemble de la suite de tests automatisés du projet Flask Calculator. Ces tests permettent de s'assurer que les opérations mathématiques et le traitement des requêtes HTTP fonctionnent correctement.
 
-## Principaux fichiers et responsabilités
-*Note : Si les fichiers n'existent pas encore, ils seront les standards du projet.*
-*   `test_operators.py` : Scripts de test visant à affirmer la robustesse unitaire de chaque constructeur algébrique (`add`, `subtract`, `multiply`, `divide`). Relève les cas de limites (division par zéro, formats valides, etc.).
-*   `test_app.py` : Scripts de validation visant le comportement d'analyse arithmétique globale et l'accessibilité HTTP (réponse 200 de la route `'/'`, injection correcte en methode POST, etc).
+## Fichiers de test
+* `test_operators.py` : Teste les opérations arithmétiques pures (`add`, `subtract`, `multiply`, `divide`). 
+* `test_app.py` : Teste la logique d'analyse de la calculatrice (`calculate`) ainsi que les réponses HTTP du serveur Flask.
 
-## Dépendances ou hypothèses
-*   Le framework de test est **Pytest**.
-*   Les tests doivent être exécutables à la racine du projet via la commande `pytest` ou `pytest -q`.
-*   Hypothèse que chaque fichier source du projet possède un fichier miroir équivalent pour le test unitaire dans ce répertoire.
+## Couverture des tests
+Les tests couvrent :
+*   L'addition, la soustraction, la multiplication et la division avec des nombres entiers et flottants.
+*   Les cas d'erreurs mathématiques asymétriques potentielles de la calculatrice.
+*   Le rejet d'expressions mathématiques invalides (vides, mauvaises lettres, sans opérateurs, doubles opérateurs).
+*   Le bon fonctionnement du point de terminaison de la page principale (`/`) en méthode `GET` et `POST`.
+
+## Exécution des tests
+
+Assurez-vous d'avoir activé votre environnement virtuel au préalable et d'être à la racine de `TP3---LOG3000-main`.
+
+Exécuter la suite complète (tous les fichiers) :
+```bash
+pytest -v
+```
+
+Exécuter un fichier de test spécifique :
+```bash
+pytest tests/test_operators.py -v
+```
